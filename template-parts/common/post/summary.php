@@ -4,7 +4,7 @@
         <div class="entry__date">
             <a href="single-standard.html">December 15, 2017</a>
         </div>
-        <h1 class="entry__title"><a href="single-standard.html">Just a Standard Format Post.</a></h1>
+        <h1 class="entry__title"><a href="<?php the_permalink(); ?>">Just a Standard Format Post.</a></h1>
 
     </div>
     <div class="entry__excerpt">

@@ -55,3 +55,67 @@ function philosophy_pagination() {
 }
 
 remove_action("term_description","wpautop");
+
+
+function philosophy_widgets(){
+    register_sidebar( array(
+        'name' => __( 'About Us Page', 'philosophy' ),
+        'id' => 'about-us',
+        'description' => __( 'Widgets in this area will be shown on about us page.', 'philosophy' ),
+        'before_widget' => '<div id="%1$s" class="col-block %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="quarter-top-margin">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name' => __( 'Contact Page Maps Section', 'philosophy' ),
+        'id' => 'contact-maps',
+        'description' => __( 'Widgets in this area will be shown on contact page.', 'philosophy' ),
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '',
+        'after_title'   => '',
+    ) );
+
+    register_sidebar( array(
+        'name' => __( 'Contact Page Information Section', 'philosophy' ),
+        'id' => 'contact-info',
+        'description' => __( 'Widgets in this area will be shown on contact page.', 'philosophy' ),
+        'before_widget' => '<div id="%1$s" class="col-block %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="quarter-top-margin">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Before Footer Section', 'philosophy' ),
+        'id'            => 'before-footer-right',
+        'description'   => __( 'before footer section, right side', 'philosophy' ),
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer Section', 'philosophy' ),
+        'id'            => 'footer-right',
+        'description'   => __( 'footer section, right side', 'philosophy' ),
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer Bottom Section', 'philosophy' ),
+        'id'            => 'footer-bottom',
+        'description'   => __( 'footer section, bottom side', 'philosophy' ),
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '',
+        'after_title'   => '',
+    ) );
+
+}
+add_action("widgets_init","philosophy_widgets");

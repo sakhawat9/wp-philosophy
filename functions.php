@@ -19,6 +19,11 @@ function philosophy_theme_setup(){
     add_editor_style("/assets/css/editor-style.css");
     
     register_nav_menu("topmenu", __("Top Menu", "philosophy"));
+    register_nav_menus(array(
+        "footer-left" => __("Footer Left Menu", "philosophy"),
+        "footer-middle" => __("Footer Middle Menu", "philosophy"),
+        "footer-right" => __("philosophy-home-square", "philosophy"),
+    ));
     add_image_size("philosophy-home-square",400,400,true);
 };
 add_action("after_setup_theme", "philosophy_theme_setup");

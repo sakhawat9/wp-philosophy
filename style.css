@@ -1,6 +1,6 @@
 /*
 Theme Name: Philosophy
-Theme URI: 
+Theme URI:
 Author: Shakib
 Author URI: https://sakhawat.vercel.app/
 Description: Philosophy by colorlib
@@ -9,7 +9,6 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: philosophy
 */
-
 .header__logo h1{
     margin:0px;
     font-weight: bold;
@@ -20,48 +19,48 @@ Text Domain: philosophy
     text-decoration: none;
 }
 
-/* WordPress Core
+/* =WordPress Core
 -------------------------------------------------------------- */
 .alignnone {
     margin: 5px 20px 20px 0;
 }
- 
+
 .aligncenter,
 div.aligncenter {
     display: block;
     margin: 5px auto 5px auto;
 }
- 
+
 .alignright {
     float:right;
     margin: 5px 0 20px 20px;
 }
- 
+
 .alignleft {
     float: left;
     margin: 5px 20px 20px 0;
 }
- 
+
 a img.alignright {
     float: right;
     margin: 5px 0 20px 20px;
 }
- 
+
 a img.alignnone {
     margin: 5px 20px 20px 0;
 }
- 
+
 a img.alignleft {
     float: left;
     margin: 5px 20px 20px 0;
 }
- 
+
 a img.aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
- 
+
 .wp-caption {
     background: #fff;
     border: 1px solid #f0f0f0;
@@ -69,19 +68,19 @@ a img.aligncenter {
     padding: 5px 3px 10px;
     text-align: center;
 }
- 
+
 .wp-caption.alignnone {
     margin: 5px 20px 20px 0;
 }
- 
+
 .wp-caption.alignleft {
     margin: 5px 20px 20px 0;
 }
- 
+
 .wp-caption.alignright {
     margin: 5px 0 20px 20px;
 }
- 
+
 .wp-caption img {
     border: 0 none;
     height: auto;
@@ -90,14 +89,14 @@ a img.aligncenter {
     padding: 0;
     width: auto;
 }
- 
+
 .wp-caption p.wp-caption-text {
     font-size: 11px;
     line-height: 17px;
     margin: 0;
     padding: 0 4px 5px;
 }
- 
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
     border: 0;
@@ -111,7 +110,7 @@ a img.aligncenter {
     width: 1px;
     word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
- 
+
 .screen-reader-text:focus {
     background-color: #eee;
     clip: auto !important;
@@ -129,6 +128,7 @@ a img.aligncenter {
     z-index: 100000;
     /* Above WP toolbar. */
 }
+
 .sticky{
 
 }

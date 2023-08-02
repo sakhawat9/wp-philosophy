@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Contact Page
  */
@@ -7,54 +8,67 @@ get_header();
 ?>
 
 
-    <!-- s-content
+<!-- s-content
     ================================================== -->
-    <section class="s-content s-content--narrow s-content--no-padding-bottom">
+<section class="s-content s-content--narrow s-content--no-padding-bottom">
 
-        <article class="row format-standard">
+    <article class="row format-standard">
 
-            <div class="s-content__header col-full">
-                <h1 class="s-content__header-title">
-                    <?php the_title() ?>
-                </h1>
-            </div> <!-- end s-content__header -->
+        <div class="s-content__header col-full">
+            <h1 class="s-content__header-title">
+                <?php the_title() ?>
+            </h1>
+        </div> <!-- end s-content__header -->
 
-            <div class="s-content__media col-full">
+        <?php
+        // Get meta
+        $meta = get_post_meta(get_the_ID(), 'custom_admin', true);
+
+        echo $meta['opt-text']; // id of the field
+        echo $meta['opt-email']; // id of the field
+        echo esc_html($meta['opt-textarea']) . "</br>"; // id of the field
+        if ($meta['is-favorite']) {
+            echo esc_html($meta['is-favorite-extra']);
+        }
+
+        ?>
+
+        <div class="s-content__media col-full">
+            <?php
+            if (is_active_sidebar("contact-maps")) {
+                dynamic_sidebar("contact-maps");
+            }
+            ?>
+        </div> <!-- end s-content__media -->
+
+        <div class="col-full s-content__main">
+
+
+            <?php the_content(); ?>
+
+            <div class="row block-1-2 block-tab-full">
                 <?php
-                if ( is_active_sidebar( "contact-maps" ) ) {
-                    dynamic_sidebar( "contact-maps" );
+                if (is_active_sidebar("contact-info")) {
+                    dynamic_sidebar("contact-info");
                 }
                 ?>
-            </div> <!-- end s-content__media -->
+            </div>
 
-            <div class="col-full s-content__main">
+            <h3><?php _e("Say Hello", "philosophy"); ?></h3>
 
+            <div>
+                <?php
+                if (get_field("contact_form_shortcode")) {
+                    echo do_shortcode(get_field("contact_form_shortcode"));
+                }
+                ?>
+            </div>
 
-                <?php the_content(); ?>
+        </div> <!-- end s-content__main -->
 
-                <div class="row block-1-2 block-tab-full">
-                    <?php
-                    if ( is_active_sidebar( "contact-info" ) ) {
-                        dynamic_sidebar( "contact-info" );
-                    }
-                    ?>
-                </div>
+    </article>
 
-                <h3><?php _e( "Say Hello", "philosophy" ); ?></h3>
-
-                <div>
-                    <?php
-                    if ( get_field( "contact_form_shortcode" ) ) {
-                        echo do_shortcode( get_field( "contact_form_shortcode" ) );
-                    }
-                    ?>
-                </div>
-
-            </div> <!-- end s-content__main -->
-
-        </article>
-
-    </section> <!-- s-content -->
+</section> <!-- s-content -->
 
 
 <?php get_footer(); ?>

@@ -14,6 +14,7 @@ get_header();
                 <h1 class="s-content__header-title">
                     <?php the_title() ?>
                 </h1>
+
                 <ul class="s-content__header-meta">
                     <li class="date"><?php the_date() ?></li>
                     <li class="cat">
@@ -42,6 +43,15 @@ get_header();
                     <span class="s-content__tag-list">
                         <?php
                         the_tags( "", "", "" );
+                        ?>
+                    </span>
+                </p> <!-- end s-content__tags -->
+                <p class="s-content__tags">
+                    <span><?php _e("Language", 'philosophy') ?></span>
+
+                    <span class="s-content__tag-list">
+                        <?php
+                        the_terms(get_the_ID(), 'language', "", "", "" );
                         ?>
                     </span>
                 </p> <!-- end s-content__tags -->

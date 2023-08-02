@@ -4,6 +4,18 @@ require_once( get_theme_file_path( "/inc/tgm.php" ) );
 require_once( get_theme_file_path( "/inc/attachments.php" ) );
 require_once( get_theme_file_path( "/inc/cmb2-attached-posts.php" ) );
 require_once( get_theme_file_path( "/widgets/social-icons-widget.php" ) );
+require_once( get_theme_file_path( "/lib/csf/codestar-framework.php" ) );
+// require_once( get_theme_file_path( "/lib/csf/samples/admin-options.php" ) );
+// require_once( get_theme_file_path( "/lib/csf/samples/comment-options.php" ) );
+// require_once( get_theme_file_path( "/lib/csf/samples/customize-options.php" ) );
+// require_once( get_theme_file_path( "/lib/csf/samples/metabox-options.php" ) );
+// require_once( get_theme_file_path( "/lib/csf/samples/nav-menu-options.php" ) );
+// require_once( get_theme_file_path( "/lib/csf/samples/profile-options.php" ) );
+// require_once( get_theme_file_path( "/lib/csf/samples/shortcode-options.php" ) );
+// require_once( get_theme_file_path( "/lib/csf/samples/taxonomy-options.php" ) );
+// require_once( get_theme_file_path( "/lib/csf/samples/widget-options.php" ) );
+require_once( get_theme_file_path( "/inc/cs.php" ) );
+
 
 if ( ! isset( $content_width ) ) {
     $content_width = 960;
@@ -266,7 +278,16 @@ function philosophy_cpt_slug_fix($post_link, $id){
         if($parent_post){
             $post_link = str_replace("%book%",$parent_post->post_name,$post_link);
         }
-
+    }
+    if(is_object() && 'book' == get_post_type($p)){
+        $genre = wp_get_post_terms('parent_book');
+        if(is_array($genre) && count($genre)>0) {
+            $slug = $genre [0]->slug;
+            $post_link = str_replace ("%genre%", $slug, $post_link );
+        } else {
+            $slug = "generic";
+            $post_link = str_replace("%genre%", $slug, $post_link, $postLink); 
+        }
     }
     return $post_link;
 }
@@ -276,7 +297,6 @@ function philosophy_footer_language_heading( $title ) {
     if ( is_post_type_archive( 'book' ) || is_tax('language') ) {
         $title = __( 'Languages', 'philosophy' );
     }
-
     return $title;
 }
 
@@ -293,3 +313,4 @@ function philosophy_footer_language_terms( $tags ) {
 }
 
 add_filter( 'philosophy_footer_tag_items', 'philosophy_footer_language_terms' );
+

@@ -5,6 +5,103 @@ if (class_exists('CSF')) {
 
     //
     // Set a unique slug-like ID
+    $prefix = 'philosophy_option';
+
+    //
+    // Create options
+    CSF::createOptions($prefix, array(
+        'menu_title' => 'Philosophy Option',
+        'menu_slug'  => 'philosophy_option',
+        'framework__title' => __('Philosophy Options', 'philosophy'),
+        'menu_icon' => 'dashicons-dashboard',
+        'menu_position' => 20
+    ));
+
+    //
+    // Create a section
+    CSF::createSection($prefix, array(
+        'title'  => 'Social Media',
+        'fields' => array(
+
+            //
+            // A text field
+            array(
+                'id'    => 'social_facebook',
+                'type'  => 'text',
+                'title' => __('Facebook URL', 'philosophy')
+            ),
+            array(
+                'id'    => 'social_twitter',
+                'type'  => 'text',
+                'title' => __('Twitter URL', 'philosophy')
+            ),
+            array(
+                'id'    => 'social_pinterest',
+                'type'  => 'text',
+                'title' => __('Pinterest URL', 'philosophy')
+            ),
+
+        )
+    ));
+
+    //
+    // Create a section
+    CSF::createSection($prefix, array(
+        'title'  => 'Tab Title 2',
+        'fields' => array(
+
+            // A textarea field
+            array(
+                'id'    => 'opt-textarea',
+                'type'  => 'textarea',
+                'title' => 'Simple Textarea',
+            ),
+
+        )
+    ));
+    CSF::createSection($prefix, array(
+        'title'  => 'Group field',
+        'fields' => array(
+
+            array(
+                'id'              => 'group_field',
+                'type'            => 'group',
+                'title'           => __( 'Group Field', 'philosophy' ),
+                'button_title'    => __( 'Add New', 'philosophy' ),
+                'accordion_title' => __( 'Add New Data', 'philosophy' ),
+                'fields'          => array(
+                    array(
+                        'id'    => 'text_data',
+                        'type'  => 'text',
+                        'title' => __( 'Some Text', 'philosophy' ),
+                    ),
+                    array(
+                        'id'         => 'select_data',
+                        'type'       => 'select',
+                        'title'      => __( 'Select Book', 'philosophy' ),
+                        'options'    => 'post',
+                        'query_args' => array(
+                            'posts_per_page' => - 1,
+                            'post_type'      => 'book'
+                        )
+                    ),
+                    array(
+                        'id'    => 'image_data',
+                        'type'  => 'upload',
+                        'title' => __( 'Upload Image', 'philosophy' ),
+                    ),
+                )
+            ),
+        )
+    ));
+}
+
+
+// Control core classes for avoid errors
+if (class_exists('CSF')) {
+
+    //
+    // Set a unique slug-like ID
     $prefix = 'custom_admin';
 
     //
@@ -112,7 +209,7 @@ if (class_exists('CSF')) {
             ),
             array(
                 'id'      => 'page-image',
-                'type'    => 'image',
+                'type'    => 'upload',
                 'title'   => __('Upload Image', 'philosophy'),
                 'add_title'   => __('Add An Image', 'philosophy'),
             ),
@@ -317,6 +414,51 @@ if (class_exists('CSF')) {
                 'id'    => 'feature-text',
                 'type'  => 'text',
                 'title' => 'Featured Text',
+            ),
+        )
+    ));
+}
+
+
+
+// Metabox
+if (class_exists('CSF')) {
+    $prefix = 'post_group_data';
+    CSF::createMetabox($prefix, array(
+        'title' => 'Custom Admin',
+        'post_type' => 'post',
+    ));
+    CSF::createSection($prefix, array(
+        'title'  => 'Group data demo',
+        'fields' => array(
+            array(
+                'id'              => 'group_field',
+                'type'            => 'group',
+                'title'           => __( 'Group Field', 'philosophy' ),
+                'button_title'    => __( 'Add New', 'philosophy' ),
+                'accordion_title' => __( 'Add New Data', 'philosophy' ),
+                'fields'          => array(
+                    array(
+                        'id'    => 'text_data',
+                        'type'  => 'text',
+                        'title' => __( 'Some Text', 'philosophy' ),
+                    ),
+                    array(
+                        'id'         => 'select_data',
+                        'type'       => 'select',
+                        'title'      => __( 'Select Book', 'philosophy' ),
+                        'options'    => 'post',
+                        'query_args' => array(
+                            'posts_per_page' => - 1,
+                            'post_type'      => 'book'
+                        )
+                    ),
+                    array(
+                        'id'    => 'image_data',
+                        'type'  => 'upload',
+                        'title' => __( 'Upload Image', 'philosophy' ),
+                    ),
+                )
             ),
         )
     ));

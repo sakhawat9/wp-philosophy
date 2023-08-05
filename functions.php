@@ -5,7 +5,7 @@ require_once( get_theme_file_path( "/inc/attachments.php" ) );
 require_once( get_theme_file_path( "/inc/cmb2-attached-posts.php" ) );
 require_once( get_theme_file_path( "/widgets/social-icons-widget.php" ) );
 require_once( get_theme_file_path( "/lib/csf/codestar-framework.php" ) );
-// require_once( get_theme_file_path( "/lib/csf/samples/admin-options.php" ) );
+require_once( get_theme_file_path( "/lib/csf/samples/admin-options.php" ) );
 // require_once( get_theme_file_path( "/lib/csf/samples/comment-options.php" ) );
 // require_once( get_theme_file_path( "/lib/csf/samples/customize-options.php" ) );
 // require_once( get_theme_file_path( "/lib/csf/samples/metabox-options.php" ) );
@@ -14,7 +14,7 @@ require_once( get_theme_file_path( "/lib/csf/codestar-framework.php" ) );
 // require_once( get_theme_file_path( "/lib/csf/samples/shortcode-options.php" ) );
 // require_once( get_theme_file_path( "/lib/csf/samples/taxonomy-options.php" ) );
 // require_once( get_theme_file_path( "/lib/csf/samples/widget-options.php" ) );
-require_once( get_theme_file_path( "/inc/cs.php" ) );
+// require_once( get_theme_file_path( "/inc/cs.php" ) );
 
 
 if ( ! isset( $content_width ) ) {
